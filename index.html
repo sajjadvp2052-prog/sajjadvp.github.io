@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sajjad VP — Innovation, Electrical & Design</title>
-  <meta name="description" content="Portfolio of Sajjad VP — B.Tech EEE student, Event Coordinator, and Web Designer based in Kozhikode, Kerala." />
+  <title>Sajjad VP — Innovation, Electrical & Web Design</title>
+  <meta name="description" content="Portfolio of Sajjad VP — B.Tech EEE Student, Event Coordinator, and Web Designer based in Kozhikode, Kerala." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* Ambient background glow */
     .glow-circle {
       position: fixed;
       width: 450px;
@@ -72,7 +71,6 @@
       font-size: 1.25rem;
       color: #fff;
       text-decoration: none;
-      letter-spacing: -0.5px;
     }
 
     .brand span {
@@ -109,10 +107,40 @@
       margin-bottom: 90px;
     }
 
-    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 60px 0 40px;
+      padding: 40px 0;
+    }
+
+    .profile-wrapper {
+      margin-bottom: 24px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+      display: block;
+    }
+
+    .profile-fallback {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
     }
 
     .badge {
@@ -126,7 +154,7 @@
       border-radius: 999px;
       font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .pulse-dot {
@@ -138,11 +166,11 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 16px;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
     }
 
     .gradient-text {
@@ -200,7 +228,6 @@
       transform: translateY(-2px);
     }
 
-    /* Section Headings */
     .section-title {
       font-size: 1.8rem;
       font-weight: 700;
@@ -217,7 +244,6 @@
       background: var(--border-color);
     }
 
-    /* Cards & Grids */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -238,7 +264,6 @@
       transform: translateY(-4px);
     }
 
-    /* Timeline */
     .timeline {
       display: flex;
       flex-direction: column;
@@ -255,7 +280,7 @@
       content: '';
       position: absolute;
       left: -7px;
-      top: 4px;
+      top: 6px;
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -287,7 +312,6 @@
       color: #d1d5db;
     }
 
-    /* Skills Badges */
     .tag-container {
       display: flex;
       flex-wrap: wrap;
@@ -311,7 +335,6 @@
       color: #38bdf8;
     }
 
-    /* Contact box */
     .contact-box {
       background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
       border: 1px solid rgba(6, 182, 212, 0.2);
@@ -327,7 +350,7 @@
 
     .contact-box p {
       color: var(--text-muted);
-      max-width: 500px;
+      max-width: 550px;
       margin: 0 auto 24px;
     }
 
@@ -367,20 +390,37 @@
   <main>
     <!-- Hero Section -->
     <section class="hero" id="about">
-      <div class="badge">
-        <div class="pulse-dot"></div>
-        Available for Internships & Projects
+      <div class="profile-wrapper">
+        <img 
+          src="profile.jpg" 
+          alt="Sajjad VP" 
+          class="profile-img" 
+          id="user-avatar"
+          onerror="this.style.display='none'; document.getElementById('user-fallback').style.display='flex';" 
+        />
+        <div class="profile-fallback" id="user-fallback">SVP</div>
       </div>
+
+      <div>
+        <div class="badge">
+          <div class="pulse-dot"></div>
+          Open for Internships & Projects
+        </div>
+      </div>
+
       <h1>
         Hi, I'm <span class="gradient-text">Sajjad VP</span>
       </h1>
       <p>
         <strong>Blending code, creativity, and coordination.</strong><br />
-        Electrical & Electronics Engineering student with hands-on experience in automation, Arduino robotics, web design, and event strategy.
+        Electrical & Electronics Engineering student at MES College of Engineering with experience in industrial automation, Arduino robotics, web design, and event strategy.
       </p>
+
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">Explore Projects</a>
-        <a href="https://www.linkedin.com/in/sajjadvp/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn Profile ↗</a>
+        <a href="https://www.linkedin.com/in/sajjadvp/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          LinkedIn Profile ↗
+        </a>
       </div>
     </section>
 
@@ -394,7 +434,7 @@
           <div class="timeline-company">Kite India · Part-time</div>
           <div class="timeline-meta">Dec 2024 – Dec 2025 · Kozhikode, Kerala (Hybrid)</div>
           <div class="timeline-desc">
-            Led event management, design initiatives, and cross-functional coordination for tech and community programs.
+            Led event coordination, design initiatives, and cross-functional team execution for tech and educational community events.
           </div>
         </div>
 
@@ -403,18 +443,18 @@
           <div class="timeline-company">Yumlux · Internship</div>
           <div class="timeline-meta">Apr 2024 – Nov 2024 (8 mos) · Bengaluru (Remote)</div>
           <div class="timeline-desc">
-            Designed responsive web interfaces, wireframes, and modern user-centric front-end layouts.
+            Designed intuitive and responsive web interfaces, wireframes, and modern user-centric front-end experiences.
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-role">Electrical & Automation Intern</div>
           <div class="timeline-company">Ringlus Electro Controls and Automation Pvt Ltd</div>
-          <div class="timeline-meta">Mar 2023 – Apr 2023 · Kozhikode, Kerala</div>
+          <div class="timeline-meta">Mar 2023 – Apr 2023 · Kozhikode, Kerala (On-site)</div>
           <div class="timeline-desc">
-            • Assisted in the assembly and wiring of industrial panel boards.<br />
-            • Conducted electrical maintenance and testing of busbars and panel meters.<br />
-            • Collaborated with automation engineers on control panel systems.
+            • Assisted in the assembly and wiring of industrial panel boards ensuring strict safety standards.<br />
+            • Conducted electrical maintenance and testing of busbars and panel meters for operational efficiency.<br />
+            • Collaborated with automation engineers on control systems.
           </div>
         </div>
 
@@ -423,7 +463,7 @@
           <div class="timeline-company">College of Engineering Chengannur</div>
           <div class="timeline-meta">Apr 2020 · Chengannur, Kerala</div>
           <div class="timeline-desc">
-            Hands-on training in web design, frontend structure, and development workflows.
+            Comprehensive hands-on training in web design principles, UI structure, and modern development workflows.
           </div>
         </div>
 
@@ -439,7 +479,7 @@
           <span class="tag highlight" style="margin-bottom: 12px; display: inline-block;">Robotics / Embedded</span>
           <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Smart Vacuum Cleaner Robot 🤖</h3>
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
-            Autonomous cleaning robot built using Arduino microcontroller, ultrasonic obstacle detection, motor drivers, and vacuum suction mechanism.
+            Autonomous vacuum cleaning robot built using an Arduino microcontroller, ultrasonic obstacle sensors, motor driver circuits, and suction fan assembly.
           </p>
           <div class="tag-container">
             <span class="tag">Arduino</span>
@@ -453,7 +493,7 @@
           <span class="tag highlight" style="margin-bottom: 12px; display: inline-block;">Electrical & Automation</span>
           <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Industrial Control Panel Assembly</h3>
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
-            Hands-on wiring, busbar calibration, and safety testing for industrial power distribution and automation switchboards.
+            Assembly, wiring, busbar testing, and load verification for industrial power distribution and automation control switchboards.
           </p>
           <div class="tag-container">
             <span class="tag">Panel Board Wiring</span>
@@ -493,7 +533,7 @@
       <div class="grid-2">
 
         <div class="card">
-          <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px;">⚡ Electrical & Embedded</h3>
+          <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px;">⚡ Electrical & Embedded Systems</h3>
           <div class="tag-container">
             <span class="tag">Arduino</span>
             <span class="tag">MATLAB</span>
@@ -505,14 +545,14 @@
         </div>
 
         <div class="card">
-          <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px;">💻 Design, Code & Tools</h3>
+          <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px;">💻 Design, Tools & Strategy</h3>
           <div class="tag-container">
             <span class="tag">Web Design (UI/UX)</span>
             <span class="tag">Event Coordination</span>
             <span class="tag">Innovation & Strategy</span>
             <span class="tag">IntelliJ IDEA</span>
             <span class="tag">Replit Agent</span>
-            <span class="tag">HubSpot / Gamma</span>
+            <span class="tag">Gamma / HubSpot</span>
           </div>
         </div>
 
@@ -530,7 +570,7 @@
           <a href="https://www.linkedin.com/in/sajjadvp/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             Connect on LinkedIn
           </a>
-          <a href="mailto:contact@sajjadvp.com" class="btn btn-outline">
+          <a href="mailto:your-email@gmail.com" class="btn btn-outline">
             Send an Email
           </a>
         </div>
