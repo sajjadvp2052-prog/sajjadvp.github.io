@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sajjad VP — Innovation, Electrical & Design</title>
+  <meta name="description" content="Portfolio of Sajjad VP — B.Tech EEE student, Event Coordinator, and Web Designer based in Kozhikode, Kerala." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-primary: #0a0f1d;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --accent: #06b6d4;
+      --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glow */
+    .glow-circle {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(10, 15, 29, 0) 70%);
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 15, 29, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 40px 24px 80px;
+    }
+
+    section {
+      margin-bottom: 90px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(6, 182, 212, 0.35);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .timeline-role {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .timeline-company {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+
+    /* Skills Badges */
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: #e5e7eb;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .tag.highlight {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.3);
+      color: #38bdf8;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: var(--radius);
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 650px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-circle"></div>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" class="brand">Sajjad<span>.VP</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+      <div class="badge">
+        <div class="pulse-dot"></div>
+        Available for Internships & Projects
+      </div>
+      <h1>
+        Hi, I'm <span class="gradient-text">Sajjad VP</span>
+      </h1>
+      <p>
+        <strong>Blending code, creativity, and coordination.</strong><br />
+        Electrical & Electronics Engineering student with hands-on experience in automation, Arduino robotics, web design, and event strategy.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="https://www.linkedin.com/in/sajjadvp/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn Profile ↗</a>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-title">Experience & Internships</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-role">Event Coordinator</div>
+          <div class="timeline-company">Kite India · Part-time</div>
+          <div class="timeline-meta">Dec 2024 – Dec 2025 · Kozhikode, Kerala (Hybrid)</div>
+          <div class="timeline-desc">
+            Led event management, design initiatives, and cross-functional coordination for tech and community programs.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-role">Web Design Intern</div>
+          <div class="timeline-company">Yumlux · Internship</div>
+          <div class="timeline-meta">Apr 2024 – Nov 2024 (8 mos) · Bengaluru (Remote)</div>
+          <div class="timeline-desc">
+            Designed responsive web interfaces, wireframes, and modern user-centric front-end layouts.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-role">Electrical & Automation Intern</div>
+          <div class="timeline-company">Ringlus Electro Controls and Automation Pvt Ltd</div>
+          <div class="timeline-meta">Mar 2023 – Apr 2023 · Kozhikode, Kerala</div>
+          <div class="timeline-desc">
+            • Assisted in the assembly and wiring of industrial panel boards.<br />
+            • Conducted electrical maintenance and testing of busbars and panel meters.<br />
+            • Collaborated with automation engineers on control panel systems.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-role">Web Development Intern</div>
+          <div class="timeline-company">College of Engineering Chengannur</div>
+          <div class="timeline-meta">Apr 2020 · Chengannur, Kerala</div>
+          <div class="timeline-desc">
+            Hands-on training in web design, frontend structure, and development workflows.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid-2">
+
+        <div class="card">
+          <span class="tag highlight" style="margin-bottom: 12px; display: inline-block;">Robotics / Embedded</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Smart Vacuum Cleaner Robot 🤖</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+            Autonomous cleaning robot built using Arduino microcontroller, ultrasonic obstacle detection, motor drivers, and vacuum suction mechanism.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Arduino</span>
+            <span class="tag">Sensors & Actuators</span>
+            <span class="tag">Motor Drivers</span>
+            <span class="tag">Embedded C</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag highlight" style="margin-bottom: 12px; display: inline-block;">Electrical & Automation</span>
+          <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Industrial Control Panel Assembly</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+            Hands-on wiring, busbar calibration, and safety testing for industrial power distribution and automation switchboards.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Panel Board Wiring</span>
+            <span class="tag">Busbar Testing</span>
+            <span class="tag">Automation</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="grid-2">
+
+        <div class="card">
+          <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 4px;">2026 – 2029</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Bachelor of Technology (B.Tech)</h3>
+          <p style="color: #fff; font-weight: 500;">Electrical and Electronics Engineering</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">MES College of Engineering, Kuttippuram</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 4px;">Diploma</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Diploma in Electrical & Electronics</h3>
+          <p style="color: #fff; font-weight: 500;">Electrical Design & Wiring</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">HHM JDT Islam Polytechnic College</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="grid-2">
+
+        <div class="card">
+          <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px;">⚡ Electrical & Embedded</h3>
+          <div class="tag-container">
+            <span class="tag">Arduino</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Circuit Analysis</span>
+            <span class="tag">Panel Board Wiring</span>
+            <span class="tag">Busbar Testing</span>
+            <span class="tag">Industrial Automation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px;">💻 Design, Code & Tools</h3>
+          <div class="tag-container">
+            <span class="tag">Web Design (UI/UX)</span>
+            <span class="tag">Event Coordination</span>
+            <span class="tag">Innovation & Strategy</span>
+            <span class="tag">IntelliJ IDEA</span>
+            <span class="tag">Replit Agent</span>
+            <span class="tag">HubSpot / Gamma</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-box">
+        <h3>Let's Connect & Collaborate</h3>
+        <p>
+          Based in <strong>Kozhikode, Kerala</strong>. Open for electrical engineering internships, automation projects, and design work.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://www.linkedin.com/in/sajjadvp/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Connect on LinkedIn
+          </a>
+          <a href="mailto:contact@sajjadvp.com" class="btn btn-outline">
+            Send an Email
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Sajjad VP · Built with code, creativity, and coordination.
+  </footer>
+
+</body>
+</html>
